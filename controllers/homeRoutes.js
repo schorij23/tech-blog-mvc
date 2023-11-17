@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User, Blog, Comments} = require('../models');
 const withAuth = require('../utils/auth');
 
+// Probably blog not user homepage has login
 // Probably not right yet user or blog or one includes another
 router.get('/', withAuth, async (req, res) => {
     // ?Data from user or blog itself or both???
