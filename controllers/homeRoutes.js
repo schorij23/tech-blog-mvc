@@ -20,25 +20,25 @@ router.get('/', withAuth, async (req, res) => {
     }
 });
 
-router.get('/', withAuth, async (req, res) => {
-    // ?Data from user or blog itself or both???
-    try {
-      const userData = await User.findAll({
-        attributes: { exclude: ['password'] },
-        // ?ACS-ascending order???
-        order: [['username', 'ASC']],
-      });
+// router.get('/', withAuth, async (req, res) => {
+//     // ?Data from user or blog itself or both???
+//     try {
+//       const userData = await User.findAll({
+//         attributes: { exclude: ['password'] },
+//         // ?ACS-ascending order???
+//         order: [['username', 'ASC']],
+//       });
   
-      const users = userData.map((project) => project.get({ plain: true }));
+//       const users = userData.map((project) => project.get({ plain: true }));
   
-      res.render('homepage', {
-        users,
-        logged_in: req.session.logged_in,
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
+//       res.render('homepage', {
+//         users,
+//         logged_in: req.session.logged_in,
+//       });
+//     } catch (err) {
+//       res.status(500).json(err);
+//     }
+//   });
 
   router.get('/login', (req, res) => {
     if (req.session.logged_in) {

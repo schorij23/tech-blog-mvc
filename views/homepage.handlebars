@@ -1,3 +1,16 @@
-{{#each users as |user| }}
-<div></div>
+{{#each blogs as |blog|}}
+<div class="row align-center mb-5">
+    <div class="container blog">
+       <div class="col-md-6">
+        <h2>
+         <a class="blogTitle" href="/blog/{{blog.id}}">{{blog.title}}</a>
+         </h2>
+       </div> 
+       <div class="col-md-6">
+        <p class="blog text">Created by {{blog.user.username}}
+          DATE {{format_date blog.date_created}}  
+        </p>
+       </div>
+    </div>
+</div>
 {{/each}}
