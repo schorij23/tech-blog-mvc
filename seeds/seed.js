@@ -2,8 +2,8 @@ const sequelize = require('../config/connection');
 const { User, Comments, Blog } = require('../models');
 
 const userData = require('./userData.json');
-const commentsData = require('./Comments.json');
-const blogData = require('./blogData');
+// const commentsData = require('./Comments.json');
+// const blogData = require('./blogData');
 
 // ? Still missing comments and blog Data??
 const seedDatabase = async () => {

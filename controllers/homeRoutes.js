@@ -2,8 +2,24 @@ const router = require('express').Router();
 const { User, Blog, Comments} = require('../models');
 const withAuth = require('../utils/auth');
 
-// Probably blog not user homepage has login
-// Probably not right yet user or blog or one includes another
+// Probably blog not user homepage has multiple user names?
+// This is my guess..
+router.get('/', withAuth, async (req, res) => {
+    try {
+        const blogData = await Blog.findAll({
+            attributes: { include: ['username'], model: User },
+        });
+
+        const blogs = blogData.map((blog) => blog.get({ plain: true}));
+        res.render('homepage', {
+            blogs,
+            logged_in: req.session.logged_in,
+        });
+    }   catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 router.get('/', withAuth, async (req, res) => {
     // ?Data from user or blog itself or both???
     try {
@@ -26,7 +42,7 @@ router.get('/', withAuth, async (req, res) => {
 
   router.get('/login', (req, res) => {
     if (req.session.logged_in) {
-        res.redirect('/');
+        res.redirect('/dashboard');
         return;
     }
 
@@ -34,5 +50,7 @@ router.get('/', withAuth, async (req, res) => {
   });
 
   // ?Signup if no account??
-
+  router.get('/signUp', (req, res) => {
+    
+  });
 module.exports = router;
