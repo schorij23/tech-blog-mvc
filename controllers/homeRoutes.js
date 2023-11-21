@@ -20,6 +20,43 @@ router.get('/', withAuth, async (req, res) => {
     }
 });
 
+router.get('/blog/:id', async (req, res) => {
+	try {
+		const blogData = await Blog.findByPk(req.params.id, {
+			include: [{ model: User, attributes: ['username'],}, {
+					model: Comment, include: [User]
+				}
+			],
+		});
+
+		const blog = blogData.get({plain: true});
+
+		res.render('blog', { ...blog, logged_in: req.session.logged_in
+		});
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
+router.get('/dashboard', withAuth, async (req, res) => {
+	try {
+		const userData = await User.findByPk(req.session.user_id, {
+			attributes: {exclude: ['password']
+			},
+			include: [{ model: Blog }],
+		});
+
+		const userName = userData.get({
+			plain: true
+		});
+
+		res.render('dashboard', {
+			...userName, logged_in: true
+		});
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
 // router.get('/', withAuth, async (req, res) => {
 //     // ?Data from user or blog itself or both???
 //     try {
@@ -51,6 +88,10 @@ router.get('/', withAuth, async (req, res) => {
 
   // ?Signup if no account??
   router.get('/signUp', (req, res) => {
-    
+    if (req.session.logged_in) {
+      return res.redirect('/');
+    }else {
+      res.render('signUp');
+    }
   });
 module.exports = router;

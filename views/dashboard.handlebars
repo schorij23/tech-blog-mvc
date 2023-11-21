@@ -1,1 +1,25 @@
-<div></div>
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+    <h2> Dashboard{{username}}</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <h3>Create a Blog</h3>
+        <form class="form blog-form">
+            <div class="mb-3">
+            <label for="blog-title" class="form-label">Blog Name</label>
+            <input type="text" class="form-control" id="blog-title" placeholder="Blog Name" />
+            </div>
+
+            <div class="mb-3">
+            <textarea class="form-control" id="blog-content"  name="blog-content" placeholder="Blog Content"></textarea>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Post A Blog</button>
+            </div>
+        </form>
+    </div>
+</div>
