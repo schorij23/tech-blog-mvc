@@ -5,20 +5,28 @@ const dashboardFormHandler = async (event) =>{
     const content = document.querySelector('#blog-content').value.trim();
 
     if (title && content) {
+
+    try {
         const response = await fetch(`/api/blogs`, {
 			method: 'POST',
 			body: JSON.stringify({ title, content }),
 			headers: {
 				'Content-Type': 'application/json',},
-        });
+        
+    }) 
+    document.location.replace('/dashboard');
 
-        if (response.ok) {
-            document.location.replace('/dashboard');
-        } else {
-            alert('Failed to create the blog');
-        }
+         }catch (error) {
+            console.log(error);
+            alert('Failed to create the blog')
+    
+        // if (response.ok) {
+        //     document.location.replace('/dashboard');
+        // } else {
+        //     alert('Failed to create the blog');
+        };
     }
-};
+}
 
 document
     .querySelector('.blog-form')
