@@ -1,7 +1,6 @@
-const { Model, DataTypes, Sequelize } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const dataTypes = require('sequelize/lib/data-types');
-const { _timestampAttributes } = require('sequelize/lib/model');
+
 
 class Comments extends Model {}
 

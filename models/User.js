@@ -19,6 +19,7 @@ User.init(
         username: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true,
         },
 
         password: {
@@ -35,6 +36,10 @@ User.init(
                 newUserData.password = await bcrypt.hash(newUserData.password, 10);
                 return newUserData;
             },
+            beforeUpdate: async (updatedUserData) => {
+                updatedUserData.password = await bcrypt.hash(updatedUserData, 10);
+                return updatedUserData;
+            }
             // Exisiting user?? hook firing order- beforeUpdate (instance, options)
         },
         sequelize,

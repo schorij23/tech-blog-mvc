@@ -4,34 +4,51 @@ const withAuth = require('../utils/auth');
 
 // Probably blog not user homepage has multiple user names?
 // This is my guess..
-router.get('/', withAuth, async (req, res) => {
-    try {
-        const blogData = await Blog.findAll({
-            attributes: { include: ['username'], model: User },
-        });
+router.get('/', async (req, res) => {
+	try {
+		const blogData = await Blog.findAll({
+			include: [{
+				model: User,
+				attributes: ['username'],
+			},],
+		});
 
-        const blogs = blogData.map((blog) => blog.get({ plain: true}));
-        res.render('homepage', {
-            blogs,
-            logged_in: req.session.logged_in,
-        });
-    }   catch (err) {
-        res.status(500).json(err);
-    }
+		const blogs = blogData.map((blog) => blog.get({
+			plain: true
+		}));
+
+		res.render('homepage', {
+			blogs,
+			logged_in: req.session.logged_in
+		});
+	} catch (err) {
+		res.status(500).json(err);
+	}
 });
 
 router.get('/blog/:id', async (req, res) => {
 	try {
 		const blogData = await Blog.findByPk(req.params.id, {
-			include: [{ model: User, attributes: ['username'],}, {
-					model: Comment, include: [User]
+			include: [
+				{
+					model: User,
+					attributes: ['username'],
+				}, {
+					model: Comments,
+					include: [
+						User
+					]
 				}
 			],
 		});
 
-		const blog = blogData.get({plain: true});
+		const blog = blogData.get({
+			plain: true
+		});
 
-		res.render('blog', { ...blog, logged_in: req.session.logged_in
+		res.render('blog', {
+			...blog,
+			logged_in: req.session.logged_in
 		});
 	} catch (err) {
 		res.status(500).json(err);
@@ -41,17 +58,21 @@ router.get('/blog/:id', async (req, res) => {
 router.get('/dashboard', withAuth, async (req, res) => {
 	try {
 		const userData = await User.findByPk(req.session.user_id, {
-			attributes: {exclude: ['password']
+			attributes: {
+				exclude: ['password']
 			},
-			include: [{ model: Blog }],
+			include: [{
+				model: Blog
+			}],
 		});
 
-		const userName = userData.get({
+		const user = userData.get({
 			plain: true
 		});
 
 		res.render('dashboard', {
-			...userName, logged_in: true
+			...user,
+			logged_in: true
 		});
 	} catch (err) {
 		res.status(500).json(err);
@@ -88,10 +109,10 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
   // ?Signup if no account??
   router.get('/signUp', (req, res) => {
-    if (req.session.logged_in) {
-      return res.redirect('/');
-    }else {
-      res.render('signUp');
-    }
-  });
+	if (req.session.logged_in) {
+		res.redirect('/dashboard');
+		return;
+	}
+	res.render('signUp');
+});
 module.exports = router;
