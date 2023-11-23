@@ -1,21 +1,17 @@
 {{#each blogs as |blog|}}
-<div class="row align-center mb-5">
-    <div class="container blog">
-       <div class="col-md-6">
+<div class="border-box">
+    <div class="blog">
         <h2>
          <a class="blogTitle" href="/blog/{{blog.id}}">{{blog.title}}</a>
          </h2>
-       </div> 
-       <div class="col-md-6">
-        <p class="blog text">Created by {{blog.user.username}}
-          DATE {{format_date blog.date_created}}  
+        <p class="blog text">Posted by {{blog.user.username}}
+          on {{format_date blog.date_created}}  
         </p>
-       </div>
-    </div>
     <div class="blogContent">
         <p class="blogContentTop">
             {{blog.content}}
         </p>
     </div>
+</div>
 </div>
 {{/each}}

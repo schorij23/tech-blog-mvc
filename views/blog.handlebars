@@ -14,4 +14,26 @@
 
     {{#if logged_in}}
 
-    <form class="new-comment-form blog"></form>
+    <form class="new-comment-form" data-blogid={{id}}>
+			<div class="textAreaCont p-2">
+				<textarea id='comment_description' name="comment-body"
+				placeholder="Enter your comment - "
+				cols="30"
+				rows="2"></textarea>
+			</div>
+			<div class="btnComment p-2">
+				<button class="button btn btn-success" type="submit">Add Comment</button>
+			</div>
+		</form>
+
+		{{/if}}
+
+		<h2 class="text-center">Comments</h2>
+		{{#each comments as |comment|}}
+		<div class="commentCont">
+			<p class="text-center commentText">{{comment.comment_description}}</p>
+			<p class="text-center commentOwner">Created by {{comment.user.username}} on {{format_date date_created}}</p>
+		</div>
+		{{/each}}
+
+		<script src="/js/comments.js"></script>

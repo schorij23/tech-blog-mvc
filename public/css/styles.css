@@ -2,6 +2,9 @@ body{
     background-color: #b8cba2;
 
 }
+.container-container-fluid-mt-5{
+    border: 25px solid  #2c2307;
+}
 .navbar.navbar-dark {
     background-color: #2c2307 !important;
     color: #b8cba2;
@@ -52,5 +55,22 @@ body{
 }
 a {
     color: #2c2307;
+}
+h2 {
+    background-color: #2c2307;
+    color: #b8cba2;
+    padding: 10px;
+}
+.blogTitle {
+    color: #b8cba2;
+}
+
+.border-box {
+    width: 120%;
+    border: 1px solid  #2c2307; 
+    background-color: #b8cba2;
+    padding: 0;
+    box-sizing: border-box;
+
 }
 
