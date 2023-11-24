@@ -1,37 +1,47 @@
+<!-- Container for the dashboard content -->
 <div class="container">
+    <!-- Row for the dashboard title -->
     <div class="row">
         <div class="col-8">
+          <!-- Dashboard title with the username -->
     <h2> Your Dashboard - {{username}}</h2>
     </div>
 </div>
-
+<!-- Row for the blog creation form -->
 <div class="row">
     <div class="col-6">
+      <!-- Form for creating a new blog -->
         <form class="form blog-form">
+          <!-- Input field for the blog title -->
             <div class="mb-3">
             <input type="text" class="form-control" id="blog-title" placeholder="Blog Name" />
             </div>
-
+            <!-- Textarea for the blog content -->
             <div class="mb-3">
             <textarea class="form-control" id="blog-content"  name="blog-content" placeholder="Blog Content"></textarea>
             </div>
+            <!-- Button to submit the new blog -->
             <div class="mb-3">
                 <button type="submit" class="btn btn-primary">Post A Blog</button>
             </div>
         </form>
     </div>
 </div>
-
+  <!-- Conditional rendering to check if blog exists -->
   {{#if blogs.length}}
+  <!-- Column for displaying the list of current blogs -->
   <div class="col-md-6 blog-list">
+    <!-- Title for the list of current blogs -->
     <h3>Current Blogs:</h3>
-
+    <!-- Loop through each blog in the list -->
     {{#each blogs as |blog|}}
     <div class="row mb-2">
+      <!-- Column for the blog title with a link to the blog -->
       <div class="col-md-8">
         <h4><a href="/blog/{{blog.id}}">{{blog.title}}</a></h4>
       </div>
       <div class="col-md-4">
+        <!-- Column for the delete button with data-id used to store custom data -->
         <button class="btn btn-danger" data-id="{{blog.id}}">DELETE</button>
       </div>
     </div>

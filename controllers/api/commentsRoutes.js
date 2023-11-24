@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Comments } = require('../../models');
 const withAuth = require('../../utils/auth');
-
+// GET route to retrieve all comments
 router.get('/', (req,res) => {
     Comments.findAll({})
     .then(commentData => res.json(commentData))
@@ -10,7 +10,7 @@ router.get('/', (req,res) => {
         res.status(500).json(err)
     });
 });
-
+// GET route to retrieve a specific comment by ID
 router.get('/:id', (req, res) => {
     Comments.findAll({
             where: {
@@ -23,11 +23,13 @@ router.get('/:id', (req, res) => {
             res.status(500).json(err);
         })
 });
-
+// POST route to create a new comment
 router.post('/', async (req, res) => {
   try {
     const newComment = await Comment.create({
+      // Spread operator to include data from the request body
       ...req.body,
+      // Set the user_id for the new comment based on the authenticated user
       user_id: req.session.user_id,
     });
     res.json(newComment);
@@ -35,7 +37,7 @@ router.post('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+// DELETE route to delete a comment by ID (requires authentication - must be loggedin)
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const commentData = await Comment.destroy({

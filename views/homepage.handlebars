@@ -1,13 +1,19 @@
 {{#each blogs as |blog|}}
+<!-- Iterating through each blog in the 'blogs' array -->
 <div class="border-box">
+    <!-- Container for the entire blog post -->
     <div class="blog">
+        <!-- Heading with a link to the individual blog post -->
         <h2>
          <a class="blogTitle" href="/blog/{{blog.id}}">{{blog.title}}</a>
          </h2>
+         <!-- Paragraph displaying information about the blog post and author -->
         <p class="blog text">Posted by {{blog.user.username}}
           on {{format_date blog.date_created}}  
         </p>
+    <!-- Container for the main content of the blog post -->
     <div class="blogContent">
+        <!-- Paragraph displaying the top content of the blog post -->
         <p class="blogContentTop">
             {{blog.content}}
         </p>

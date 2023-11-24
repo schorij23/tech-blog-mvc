@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-
+// Define the Comments class as an extension of the Sequelize Model class
 class Comments extends Model {}
 
 
@@ -38,6 +38,7 @@ Comments.init (
         },
       },
       {
+        // Sequelize instance
         sequelize,
         timestamps: false,
         freezeTableName: true,

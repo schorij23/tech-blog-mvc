@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Blog } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// POST route to create a new blog post (requires authentication - means your loggedIn)
 router.post('/', withAuth, async (req, res) => {
     try {
       const newBlog = await Blog.create({
@@ -14,7 +15,7 @@ router.post('/', withAuth, async (req, res) => {
       res.status(400).json(err);
     }
   });
-  
+  // DELETE route to delete a blog post by ID (requires authentication - means your loggedIn)
   router.delete('/:id', withAuth, async (req, res) => {
     try {
       const blogData = await Blog.destroy({
