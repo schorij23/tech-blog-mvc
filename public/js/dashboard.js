@@ -2,7 +2,7 @@ const dashboardFormHandler = async (event) =>{
     event.preventDefault();
 
     const title = document.querySelector('#blog-title').value.trim();
-    const description = document.querySelector('#blog-content').value.trim();
+    const description = document.querySelector('#blog-desc').value.trim();
 
     if (title && description) {
 
@@ -28,7 +28,7 @@ const dashboardFormHandler = async (event) =>{
     }
 }
 
-const deleteButtonHandler = async (event) => {
+const delButtonHandler = async (event) => {
 	if (event.target.hasAttribute('data-id')) {
 		const id = event.target.getAttribute('data-id');
 
@@ -44,9 +44,9 @@ const deleteButtonHandler = async (event) => {
 	}
 };
 document
-    .querySelector('.blog-form')
+    .querySelector('.new-blog-form')
     .addEventListener('submit', dashboardFormHandler);
 
     document
 	.querySelector('.blog-list')
-	.addEventListener('click', deleteButtonHandler);
+	.addEventListener('click', delButtonHandler);
