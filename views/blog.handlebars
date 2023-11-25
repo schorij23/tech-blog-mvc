@@ -36,12 +36,12 @@
 {{/if}}
 <!-- Section for displaying comments -->
 <h2 class="text-center">Comments</h2>
-{{#each comments as |comments|}}
+{{#each comments as |comment|}}
 <!-- Individual comment container -->
 <div class="commentCont">
 	<!-- Displaying comment text comment owner and date created-->
-	<p class="text-center commentText">{{comments.comment_description}}</p>
-	<p class="text-center commentOwner">Created by {{comments.user.username}} on {{format_date date_created}}</p>
+	<p class="text-center commentText">{{comment.comment_description}}</p>
+	<p class="text-center commentOwner">Created by {{comment.user.username}} on {{format_date date_created}}</p>
 </div>
 {{/each}}
 
