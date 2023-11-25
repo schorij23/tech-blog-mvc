@@ -28,7 +28,7 @@ const dashboardFormHandler = async (event) =>{
     }
 }
 
-const delButtonHandler = async (event) => {
+const deleteButtonHandler = async (event) => {
 	if (event.target.hasAttribute('data-id')) {
 		const id = event.target.getAttribute('data-id');
 
@@ -49,4 +49,4 @@ document
 
     document
 	.querySelector('.blog-list')
-	.addEventListener('click', delButtonHandler);
+	.addEventListener('click', deleteButtonHandler);
