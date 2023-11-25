@@ -14,7 +14,7 @@
     <div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <div class="container-fluid">
-                <a class="navbar-brand" href="#">The Tech Blog</a>
+                <a class="navbar-brand" href="/">The Tech Blog</a>
                     <button class="navbar-toggler" 
                     type="button" 
                     data-bs-toggle="collapse" 
@@ -27,7 +27,7 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                           <ul class="navbar-nav">
                         <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
                         </li>
                         <!-- Conditional rendering based on user authentication -->
                         {{#if logged_in}}
@@ -51,7 +51,7 @@
           </div>
     </nav>
         <!-- Main content container with dynamic body content -->
-        <main class="container container-fluid mt-5">
+        <main class="container container-fluid mt-5 main-container">
             {{{body}}}
         </main>
         <footer>
