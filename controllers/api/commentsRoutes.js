@@ -26,7 +26,7 @@ router.get('/:id', (req, res) => {
 // POST route to create a new comment
 router.post('/', async (req, res) => {
   try {
-    const newComment = await Comment.create({
+    const newComment = await Comments.create({
       // Spread operator to include data from the request body
       ...req.body,
       // Set the user_id for the new comment based on the authenticated user
@@ -40,7 +40,7 @@ router.post('/', async (req, res) => {
 // DELETE route to delete a comment by ID (requires authentication - must be loggedin)
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const commentData = await Comment.destroy({
+    const commentData = await Comments.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
