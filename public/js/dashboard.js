@@ -2,14 +2,14 @@ const dashboardFormHandler = async (event) =>{
     event.preventDefault();
 
     const title = document.querySelector('#blog-title').value.trim();
-    const content = document.querySelector('#blog-content').value.trim();
+    const description = document.querySelector('#blog-content').value.trim();
 
-    if (title && content) {
+    if (title && description) {
 
     try {
         const response = await fetch(`/api/blogs`, {
 			method: 'POST',
-			body: JSON.stringify({ title, content }),
+			body: JSON.stringify({ title, description }),
 			headers: {
 				'Content-Type': 'application/json',},
         

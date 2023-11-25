@@ -46,6 +46,8 @@ router.get('/blog/:id', async (req, res) => {
 			plain: true
 		});
 
+		console.log(blog)
+
 		res.render('blog', {
 			...blog,
 			logged_in: req.session.logged_in
@@ -69,7 +71,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 		const user = userData.get({
 			plain: true
 		});
-
+			console.log(user);
 		res.render('dashboard', {
 			...user,
 			logged_in: true
