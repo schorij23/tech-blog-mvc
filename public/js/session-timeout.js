@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('Script loaded.'); // Check if the script is loaded
 
     let idleTime = 0;
-    const idleInterval = 60000; // Set the idle time in milliseconds (e.g., 1 minute)
+    const idleInterval = 6000; // Set the idle time in milliseconds (e.g., 1 minute)
     let promptShown = false; // Variable to track if the prompt has been shown
 
     // Increment the idle time every minute
@@ -51,10 +51,10 @@ document.addEventListener('DOMContentLoaded', function () {
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            Your session is about to expire. Please log in to continue.
+                            Please log to add, update, or delete posts
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="resetPrompt()">Log In</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="resetPrompt()">Please Log In</button>
                         </div>
                     </div>
                 </div>
