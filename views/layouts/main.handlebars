@@ -64,5 +64,8 @@
         {{#if logged_in}}
         <script src="/js/logout.js"></script>
         {{/if}}
+        {{#unless logged_in}}
+        <script src="/js/session-timeout.js"></script>
+        {{/unless}}
 </body>
 </html>

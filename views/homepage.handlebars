@@ -4,6 +4,7 @@
     <!-- Container for the entire blog post -->
     <div class="blog">
         <!-- Heading with a link to the individual blog post -->
+        <div class="blog-header">
         <h2>
          <a class="blogTitle" href="/blog/{{blog.id}}">{{blog.title}}</a>
          </h2>
@@ -11,8 +12,9 @@
         <p class="blog text">Posted by {{blog.user.username}}
           on {{format_date blog.date_created}}  
         </p>
+        </div>
     <!-- Container for the main content of the blog post -->
-    <div class="blogDesc">
+    <div class="blogDescription">
         <!-- Paragraph displaying the top content of the blog post -->
         <p class="blogContentTop">
             {{blog.description}}
