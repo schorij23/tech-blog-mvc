@@ -2,26 +2,28 @@ const router = require('express').Router();
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 // GET route to retrieve all comments
-router.get('/', (req,res) => {
-    Comment.findAll({})
-    .then(commentData => res.json(commentData))
-    .catch(err => {
+router.get('/',async (req,res) => {
+  try {
+    const commentData =await Comment.findAll({});
+    res.json(commentData);
+    }catch(err) {
         console.log(err);
         res.status(500).json(err)
-    });
+    }
 });
 // GET route to retrieve a specific comment by ID
-router.get('/:id', (req, res) => {
-    Comment.findAll({
+router.get('/:id', async (req, res) => {
+  try {
+    const commentData =await Comment.findAll({
             where: {
                 id: req.params.id
             }
-        })
-        .then(commentData => res.json(commentData))
-        .catch(err => {
+        });
+        res.json(commentData);
+      }catch(err) {
             console.log(err);
             res.status(500).json(err);
-        })
+        }
 });
 // POST route to create a new comment
 router.post('/', async (req, res) => {
