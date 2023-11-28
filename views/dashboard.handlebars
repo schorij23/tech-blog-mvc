@@ -2,48 +2,56 @@
 <div class="container">
     <!-- Row for the dashboard title -->
     <div class="row">
-        <div class="col-8">
+        <div class="col-8 dashboard-column">
+        <div class="dashboard-content">
           <!-- Dashboard title with the username -->
-    <h2> Your Dashboard - {{username}}</h2>
-    </div>
-</div>
+    <h2 class="post"> Add a Post - {{username}}</h2>
+    {{!-- </div>
+</div> --}}
 <!-- Row for the blog creation form -->
-<div class="row">
-    <div class="col-6">
+{{!-- <div class="row">
+    <div class="col-8"> --}}
       <!-- Form for creating a new blog -->
         <form class="form new-blog-form">
           <!-- Input field for the blog title -->
             <div class="mb-3">
+              <label for="blog-title" class="form-label">Title</label>
             <input type="text" class="form-control" id="blog-title" placeholder="Blog Name" />
             </div>
             <!-- Textarea for the blog content -->
             <div class="mb-3">
+              <label for="blog-desc" class="form-label">Content</label>
             <textarea class="form-control" id="blog-desc"  name="blog-desc" placeholder="Blog Content"></textarea>
             </div>
             <!-- Button to submit the new blog -->
             <div class="mb-3">
-                <button type="submit" class="btn btn-primary">Post A Blog</button>
+                <button type="submit" class="btn btn-primary custom-btn-wide"><span>+</span>Create</button>
             </div>
         </form>
     </div>
 </div>
+    </div>
   <!-- Conditional rendering to check if blog exists -->
   {{#if blogs.length}}
   <!-- Column for displaying the list of current blogs -->
-  <div class="col-md-6 blog-list">
+  <div class="col-md-10 blog-list existing-blogs-container">
     <!-- Title for the list of current blogs -->
-    <h3>Current Blogs:</h3>
+    <h3>Existing Blogs:</h3>
     <!-- Loop through each blog in the list -->
     {{#each blogs as |blog|}}
+    <div class="existing-blog">
     <div class="row mb-2">
       <!-- Column for the blog title with a link to the blog -->
-      <div class="col-md-8">
+      <div class="col-md-12">
         <h4><a href="/blog/{{blog.id}}">{{blog.title}}</a></h4>
       </div>
-      <div class="col-md-4">
-        <!-- Column for the delete button with data-id used to store custom data -->
-        <button class="btn btn-danger" data-id="{{blog.id}}">DELETE</button>
       </div>
+      <div class="row mb-2">
+      <div class="col-md-12">
+        <!-- Column for the delete button with data-id used to store custom data -->
+        <button class="btn btn-danger" data-id="{{blog.id}}">DELETE the Post</button>
+      </div>
+    </div>
     </div>
     {{/each}}
   </div>

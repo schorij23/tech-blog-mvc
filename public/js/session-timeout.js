@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let idleTime = 0;
      // Set the idle time in milliseconds (60000 = 1 minute)
-    const idleInterval = 6000;
+    const idleInterval = 60000000;
      // Variable to track if the prompt has been shown
     let promptShown = false;
 
