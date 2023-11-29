@@ -44,7 +44,9 @@ router.delete('/:id', withAuth, async (req, res) => {
   try {
     const commentData = await Comment.destroy({
       where: {
+        // Deleting the blog with the specified id
         id: req.params.id,
+        // Setting that the user_id matches the user's session
         user_id: req.session.user_id,
       },
     });

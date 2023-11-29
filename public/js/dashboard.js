@@ -19,11 +19,6 @@ const dashboardFormHandler = async (event) =>{
          }catch (error) {
             console.log(error);
             alert('Failed to create the blog')
-    
-        // if (response.ok) {
-        //     document.location.replace('/dashboard');
-        // } else {
-        //     alert('Failed to create the blog');
         };
     }
 }

@@ -31,9 +31,11 @@ router.get('/blog/:id', async (req, res) => {
 		const blogData = await Blog.findByPk(req.params.id, {
 			include: [
 				{
+				// Including the User model to retrieve the username attribute
 					model: User,
 					attributes: ['username'],
 				}, {
+					// Including the Comment model along with its associated User
 					model: Comment,
 					include: [
 						User
@@ -41,14 +43,15 @@ router.get('/blog/:id', async (req, res) => {
 				}
 			],
 		});
-
+		// Converting the Sequelize model instance to a plain JavaScript object
 		const blog = blogData.get({
 			plain: true
 		});
 
 		console.log(blog)
-
+		// Rendering the 'blog' view with the retrieved data and additional information
 		res.render('blog', {
+			// Spread operator to include data from the blog object
 			...blog,
 			logged_in: req.session.logged_in
 		});

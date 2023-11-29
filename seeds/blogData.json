@@ -1,6 +1,9 @@
 [
     {
-      "title": "Test the Blog",
-      "description": "This is just a test"
+      "title": "Title Test",
+      "id": 1,
+      "description": "This is just a test",
+      "date_created": "DD/MM/YYYY",
+      "user_id": 1
     }
   ]
