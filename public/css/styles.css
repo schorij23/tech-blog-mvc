@@ -50,6 +50,10 @@ body{
     background-color: #b8cba2;
 
 }
+.btn.btn-primary-login-signup {
+    color: white;
+    background-color: black;
+}
 .container-container-fluid.mt-5{
     border: 25px solid  #2c2307;
 }
@@ -226,7 +230,7 @@ a.signup-link, a.login-link {
   }
 .btnComment.p-2 {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
 }
 .btn-success{
     background-color: grey;

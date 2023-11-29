@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let idleTime = 0;
      // Set the idle time in milliseconds (60000 = 1 minute)
-    const idleInterval = 60000000;
+    const idleInterval = 9000;
      // Variable to track if the prompt has been shown
     let promptShown = false;
 
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             Please log to add, update, or delete posts
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="resetPrompt()">Please Log In</button>
+                            <button type="button" class="btn btn-primary-login-signup" data-bs-dismiss="modal" onclick="resetPrompt()">Please Log In</button>
                         </div>
                     </div>
                 </div>
