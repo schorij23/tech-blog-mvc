@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Blog, Comment} = require('../models');
 const withAuth = require('../utils/auth');
 
-// GET route for the homepage
+// GET route for the root path or homepage
 router.get('/', async (req, res) => {
 	try {
 		// Retrieve blog data with associated usernames
@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
 		res.status(500).json(err);
 	}
 });
-// GET route for a specific blog post based on id
+// GET route for a specific blog endpoint post based on id
 router.get('/blog/:id', async (req, res) => {
 	try {
 		const blogData = await Blog.findByPk(req.params.id, {
@@ -59,7 +59,7 @@ router.get('/blog/:id', async (req, res) => {
 		res.status(500).json(err);
 	}
 });
-// GET route for the user dashboard (requires authentication thay you are loggedin)
+// GET route for the user dashboard enpoint (requires authentication that you are loggedin)
 router.get('/dashboard', withAuth, async (req, res) => {
 	try {
 		const userData = await User.findByPk(req.session.user_id, {
@@ -70,12 +70,14 @@ router.get('/dashboard', withAuth, async (req, res) => {
 				model: Blog
 			}],
 		});
-
+		//convert squelize model instance to plan JS object
 		const user = userData.get({
 			plain: true
 		});
+		// Render dashboard view with user login data
 			console.log(user);
 		res.render('dashboard', {
+			//Spres user properties into view data
 			...user,
 			logged_in: true
 		});
@@ -83,22 +85,26 @@ router.get('/dashboard', withAuth, async (req, res) => {
 		res.status(500).json(err);
 	}
 });
-	// GET route for the login page
+	// GET route for the login endpoint
   router.get('/login', (req, res) => {
+	// check if logged in
     if (req.session.logged_in) {
+		// If logged in redirect to dashpoint endpoint
         res.redirect('/dashboard');
         return;
     }
-
+	// If not logged in, render login view
     res.render('login');
   });
 
   // GET route for the signup page
   router.get('/signUp', (req, res) => {
 	if (req.session.logged_in) {
+		// if logged in redirect to dashboard endpoint
 		res.redirect('/dashboard');
 		return;
 	}
+	//if not logged in render the sign up view
 	res.render('signUp');
 });
 module.exports = router;

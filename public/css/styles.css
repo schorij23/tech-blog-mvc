@@ -62,22 +62,21 @@ body{
 }
 
 .container-box {
-    border: 4px solid #2c2307; /* Set the border style, color, and width */
-    padding: 15px; /* Set padding to create space between content and border */
-    /* Optional: Add border-radius for rounded corners */   
+    border: 4px solid #2c2307;
+    padding: 15px; 
 }
 .container-box h2 {
     margin-top: -15px;
     margin-left: -15px;
     margin-right: 15px;
-    margin-bottom: 15px; /* Optional: Add margin at the bottom of the h2 element */
+    margin-bottom: 15px;
     width: calc(100% + 30px);
 }
 .post {
     margin-top: -15px;
     margin-left: -15px;
     margin-right: 15px;
-    margin-bottom: 15px; /* Optional: Add margin at the bottom of the h2 element */
+    margin-bottom: 15px;
     width: calc(100% + 30px);   
 }
 .form-control::placeholder {
@@ -124,10 +123,7 @@ a.signup-link, a.login-link {
     color: #b8cba2;
     font-size: 32px;
 }
-/* .blogCreate {
-    flex: 0 0 200px;
-    text-align: right;
-} */
+
 .blog {
     display: flex;
     flex-direction: column;
@@ -160,12 +156,12 @@ a.signup-link, a.login-link {
 
 /* Apply margin to the bottom of the first .border-box */
 .border-box:first-child {
-    margin-bottom: 15px; /* Adjust the value based on the desired spacing */
+    margin-bottom: 15px;
 }
 
 /* Apply margin to the top of all .border-box elements starting from the second one */
 .border-box:not(:first-child) {
-    margin-top: 15px; /* Adjust the value based on the desired spacing */
+    margin-top: 15px; 
 }
 
 .modal-dialog{

@@ -45,8 +45,7 @@ Comment.init (
         underscored: true,
         modelName: 'comment',
       }
-            // body: DataTypes.STRING},  
-            // {sequelize}
+
 );
 module.exports = Comment;
 

@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Check if the script is loaded
     console.log('Script loaded.');
-
+    // Set idle time variable
     let idleTime = 0;
      // Set the idle time in milliseconds (60000 per 1 minute)
     const idleInterval = 300000;
@@ -19,30 +19,31 @@ document.addEventListener('DOMContentLoaded', function () {
         resetIdleTime();
         console.log('Mouse moved.');
     });
-    // Reset the idle time check for key press
+    // Reset the idle time check for key down press
     document.addEventListener('keydown', function () {
         resetIdleTime();
         console.log('Key pressed.');
     });
-    // Set idel time ahnd check if prompt is not shown
+    // Set idel time and check if prompt is not been shown
     function timerIncrement() {
         idleTime += 1;
         if (idleTime >= 1 && !promptShown) {
             // Show a modal prompt on the page
             showLoginModal();
+
             // Check if the prompt is shown
             console.log('Prompt shown.');
             // Set the variable to true after showing the prompt
             promptShown = true;
         }
     }
-
+    // Reset the idle time to zero
     function resetIdleTime() {
         idleTime = 0;
     }
 
     function showLoginModal() {
-        // Create a modal element
+        // Create a bootstrap modal element
         const modalElement = document.createElement('div');
         modalElement.innerHTML = `
             <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
@@ -66,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Append the modal element to the body
         document.body.appendChild(modalElement);
 
-        // Activate the Bootstrap modal
+        // Activate the Bootstrap modal using the bootstrap modal constructor
         const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
         loginModal.show();
     }

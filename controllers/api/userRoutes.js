@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require("../../models");
 
-// POST route to create a new user
+// Route to create a new user in the root path
 router.post('/', async (req, res) => {
     try {
       const userData = await User.create(req.body);
@@ -16,7 +16,7 @@ router.post('/', async (req, res) => {
       res.status(400).json(err);
     }
   });
-  // POST route to handle user login
+  // POST route to handle user login endpoint
   router.post('/login', async (req, res) => {
     try {
       const userData = await User.findOne({ 
@@ -51,7 +51,7 @@ router.post('/', async (req, res) => {
     }
   });
 
-  // POST route to handle user logout
+  // POST route to handle user logout endpoint
   router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
       req.session.destroy(() => {

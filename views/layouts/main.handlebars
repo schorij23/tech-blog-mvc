@@ -12,9 +12,10 @@
 
 <body>
     <div>
+        {{!-- Bootstrap Navbar --}}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <div class="container-fluid">
-                {{!-- <a class="navbar-brand" href="/">The Tech Blog</a> --}}
+                {{!-- Respomsive Toogle button for small screens --}}
                     <button class="navbar-toggler" 
                     type="button" 
                     data-bs-toggle="collapse" 
@@ -24,7 +25,9 @@
                     aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
+                    {{!-- navbar content --}}
                     <div class="collapse navbar-collapse" id="navbarNav">
+                        {{!-- Navigation Links --}}
                         <div>
                           <ul class="navbar-nav">
                         <li class="nav-item">
@@ -48,6 +51,7 @@
                         </li>
                         {{/if}}
                         </ul>
+                        {{!-- Button outside nav list --}}
                         <button class="btn btn-secondary" ID="techBlogBtn">The Tech Blog</button>
                         </div>
                         <ul class="navbar-nav">
