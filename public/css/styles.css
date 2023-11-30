@@ -143,13 +143,12 @@ a.signup-link, a.login-link {
 }
 .blog-text {
     margin-left: auto;
-    /* padding-right: 10px */
+
 }
 .border-box {
     width: 115%;
     border: 3px solid  #2c2307; 
     background-color: #b8cba2;
-    /* padding: 2px; */
     box-sizing: border-box;
 
 }
@@ -165,33 +164,33 @@ a.signup-link, a.login-link {
 }
 
 .modal-dialog{
-    background-color: lime;
-    color: black;
-    border: 2px solid black; 
+    background-color: #b8cba2;
+    color: #2c2307;
+    border: 2px solid #2c2307; 
     border-radius: 10px;
 }
 .modal-content{
-    background-color: lime;
-    color: black;
-    border: 2px solid black; 
+    background-color: #b8cba2;
+    color: #2c2307;
+    border: 2px solid #2c2307; 
     border-radius: 10px;
 }
 .modal-header{
     border-radius: 10px;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #2c2307;
 }
 #loginModal .modal-header{
     border-bottom: none;
 }
 .modal-body {
-    background-color: lime;
-    color: black;
+    background-color: #b8cba2;
+    color: #2c2307;
     border-bottom: none; 
 }
 
 .modal-footer{
-    background-color: lime;
-    color: black;
+    background-color: #b8cba2;
+    color: #2c2307;
     border-top: none;
 }
 .dashboard-content {
@@ -210,6 +209,9 @@ a.signup-link, a.login-link {
 .blogDescriptionpt2 {
     font-size: 24px;
     margin-left: 10px;
+}
+.textAreaCont textarea {
+  padding-left: 10px;
 }
 .textAreaCont {
     margin-right: 20px;

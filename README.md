@@ -3,14 +3,13 @@
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## Description
-
+This Project uses MVC Architecture also know as Model View Controller used to organize code and seperate concerns. It uses a Model for data, Views to display data and a Controller as an intermediary between the two. This project is used as to store a blog.
 ## Table of Contents
 
 * [Installations](#installations)
 * [Usage](#usage)
 * [License](#license)
 * [Questions](#questions)
-* [Walkthrough](#walkthrough)
 * [Screenshots](#screenshots)
 
 
@@ -28,7 +27,7 @@ Install bcrypt [bcrypt](https://www.npmjs.com/package/bcrypt) for password hashi
 Install connect-session-sequelize [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize) for session data storage using Sequelize<br>
 
 ## Usage
-
+This Project is used to post blog stored on the database while being shown on the frontend
 
 ## License
 The project is licensed by the MIT License.
@@ -42,8 +41,7 @@ For more details, see [License Details](https://choosealicense.com/licenses/mit/
   - GitHub User Name [GitHub](https://github.com/schorij23) 
   - Email address schorij23@gmail.com
 
-## Walkthrough
 
 ## Screenshots
-Employee Tracker Command Line <br>
-![Employee Tracker](./assests/images/Employee%20Tracker.png)
+Tech Blog <br>
+![Tech Blog](./assets/images/Tech%20Blog%20screenshot.png)
