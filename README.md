@@ -27,7 +27,7 @@ Install bcrypt [bcrypt](https://www.npmjs.com/package/bcrypt) for password hashi
 Install connect-session-sequelize [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize) for session data storage using Sequelize<br>
 
 ## Usage
-This Project is used to post blog stored on the database while being shown on the frontend
+This Project is used to post blog stored on the database while being connected on the frontend
 
 ## License
 The project is licensed by the MIT License.
@@ -43,5 +43,5 @@ For more details, see [License Details](https://choosealicense.com/licenses/mit/
 
 
 ## Screenshots
-Tech Blog <br>
-![Tech Blog](./assets/images/Tech%20Blog%20screenshot.png)
+Tech Blog https://jeffs-tech-blog-mvc-1d4c4a7708a9.herokuapp.com/<br>
+![Tech Blog](./assets/images/Tech%20Blog%20screenshot%20deployed.png)
